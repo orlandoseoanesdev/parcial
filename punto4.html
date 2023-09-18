@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+  <style>
+     .card2{
+      width: 500px;
+      height: 600px;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+     }
+  </style>
+<body>
+   <header>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid" style="display: flex;justify-content: space-around; ">
+          <a class="navbar-brand" href="#" ">
+            <img src="LOGO-UPC.png" alt="" width="auto" height="54" >
+            
+          </a>
+          <h4>parcial de modelos y simulacion parte 4</h4>
+        </div>
+      </nav>
+   </header>
+
+   <section>
+    <div style="display: flex;justify-content: center; padding-top: 20px;">
+        <div class="card">
+            <div class="card-body">
+              <p> Usted ha sido contratado por la UPC para que realice un estudio <br>
+                 del funcionamiento de la nómina de profesores ocasionales y catedráticos, <br>
+                  de acuerdo a la normatividad vigente. </p>
+            </div>
+        </div>
+          
+    </div>
+
+    <div class="container " style="padding-top: 20px;display: flex;justify-content: center;gap: 40px; ">
+      
+      <div class="card">
+        <div class="card-body">
+          describa completamente el modelo realizado,  <br>
+          indicando cuales son las variables de entrada,  <br>
+          de salida, y las ecuaciones utilizadas.        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          realice la simulación suponiendo las diferentes <br>
+           contrataciones de los profesores.  <br>
+        </div>
+      </div>
+    
+   </section>
+
+   <section>
+    <hr>
+      <div style="text-align: center; ">
+        
+          <div><h1>Simulacion de nomina</h1></div>
+          <div><h3>Profesor ocasional</h3></div>
+
+          <form action="">
+           <div style="display: flex; flex-wrap: wrap;">
+            
+              <div style="display: flex;align-items: baseline; padding: 20px;gap: 5px;">
+                <div>
+                  <p>Seleccione su categoria como docente</p>
+                </div>
+                <div>
+                  <select  id="categoria"    class="form-select" aria-label="Default select example">
+                    <option value="0">ninguna</option>
+                    <option value="2.645">Auxiliar de tiempo completo</option>
+                    <option value="1.509">Auxiliar de tiempo medio	</option>
+                    <option value="3.125">Asistente de tiempo completo		</option>
+                    <option value="1.749">Asistente de tiempo medio		</option>
+                    <option value="3.606">Asociado de tiempo  completo		</option>
+                    <option value="1.990">Asociado de tiempo  medio		</option>
+                    <option value="3.918">Titular de tiempo completo			</option>
+                    <option value="2.146">Titular de tiempo medio		</option>
+                  </select>
+                </div>
+                
+              </div>
+  
+              <div style="display: flex;align-items: baseline; padding: 20px;gap: 5px;">
+                <div>
+                  <p>Seleccione su postgrado</p>
+                </div>
+                <div>
+                  <select  id="postgrado" class="form-select" aria-label="Default select example">
+                    <option value="0">Ninguna</option>
+                    <option value="0.10">Especializacion		</option>
+                    <option value="0.45">Maestria		</option>
+                    <option value="0.90">Doctorado		</option>
+                    <option value="0">Posdoctorado			</option>
+              
+                  </select>
+                </div>
+                
+              </div>
+
+              <div style="display: flex;align-items: baseline; padding: 20px;gap: 5px;">
+                <div>
+                  <p>Seleccione su grupo de investigacion</p>
+                </div>
+                <div>
+                  <select  id="grupo_Investigaicon" class="form-select" aria-label="Default select example">
+                    <option value="0">Ninguna</option>
+                    <option value="0.56">A1		</option>
+                    <option value="0.47">A		</option>
+                    <option value="0.42">B		</option>
+                    <option value="0.38">C		</option>
+                    <option value="0.33">Reconocido por colciencias		</option>
+                    <option value="0.19">Semillero	</option>
+
+              
+                  </select>
+                </div>
+                
+              </div>
+
+           </div>
+
+           <div style="display: flex;padding: 20px;justify-content: space-around;gap: 20px;flex-wrap: wrap; align-items: baseline;">
+
+            <div style="display: flex;align-items: baseline; padding: 20px;gap: 5px;">
+              <div>
+                <p>Dias trabajados </p>
+              </div>
+              <div>
+                <input id="dias" class="form-control" type="number" placeholder="1 dia" aria-label="default input example">
+              </div>
+              
+            </div>
+            
+              <div><h6>Sueldo minimo mensual legal vigente 2023: <strong> 1.160.000</strong></h6></div>
+
+              <div><button id="boton1"  type="button" class="btn btn-primary">Calcular</button></div>
+           </div>
+
+            <div style="display: flex;padding: 20px;align-items: baseline;gap: 20px;flex-wrap: wrap;">
+
+             
+
+                <div style="display: flex;align-items: baseline;gap: 5px;">
+                  <div>Sueldo:</div>
+                  <div><input id="respuesta" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+                </div> 
+
+                <div style="display: flex;align-items: baseline;gap: 5px;">
+                  <div>Prima del servicio:</div>
+                  <div><input id="primaservicio" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+                </div> 
+
+                <div style="display: flex;align-items: baseline;gap: 5px;">
+                  <div>Vacaciones:</div>
+                  <div><input id="Vacaciones" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+                </div> 
+
+                <div style="display: flex;align-items: baseline;gap: 5px;">
+                  <div>Prima Vacaciones:</div>
+                  <div><input id="primavacaciones" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+                </div> 
+
+                <div style="display: flex;align-items: baseline;gap: 5px;">
+                  <div>Prima navidad:</div>
+                  <div><input id="primanavidad" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+                </div> 
+
+                <div style="display: flex;align-items: baseline;gap: 5px;">
+                  <div>Cesantias:</div>
+                  <div><input id="cesantias" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+                </div> 
+
+                <div style="display: flex;align-items: baseline;gap: 5px;">
+                  <div> INTER/CTIAS :</div>
+                  <div><input id="interctias" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+                </div> 
+
+                <div style="display: flex;align-items: baseline;gap: 5px;">
+                  <div>  TOTAL PREST :</div>
+                  <div><input id="Totalprestaciones" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+                </div> 
+
+                <div style="display: flex;align-items: baseline;gap: 5px;">
+                  <div>   ESTAMP  :</div>
+                  <div><input id="Estampillas" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+                </div> 
+
+                <div style="display: flex;align-items: baseline;gap: 5px;">
+                  <div>   Total recibido a lo largo del año en prestaciones  :</div>
+                  <div><input id="Total" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+                </div> 
+
+
+             </div>
+          </form>
+      </div>
+   </section>
+
+   <hr>
+   <div style="text-align: center;">
+    <h1>Simulacion de nomina</h1>
+    <div><h3>Profesor catedratico</h3></div>
+  </div>
+
+   <section>
+    <div style="display: flex;padding: 20px;justify-content: space-around;flex-wrap: wrap; align-items: baseline;">
+      <div style="display: flex;align-items: baseline;gap: 5px;">
+        <div>
+          <p>horas de trabajo por semana</p>
+        </div>
+        <div>
+          <input id="horas" class="form-control" type="number" placeholder="x dias" aria-label="default input example">
+        </div>
+
+        
+     
+      
+      </div>
+
+      <div style="display: flex;align-items: baseline;gap: 5px;">
+
+        <div>
+          <p>Duracion del contrato</p>
+        </div>
+        <div>
+          <select  id="Dur_contrato" class="form-select" aria-label="Default select example">
+            <option value="0">Ninguna</option>
+            <option value="1">1 mes	</option>
+            <option value="2">2 meses	</option>
+            <option value="3">3 meses		</option>
+            <option value="4">4 meses	</option>
+            <option value="5">5 meses		</option>
+            <option value="6">6 mes	</option>
+            <option value="7">7 meses	</option>
+            <option value="8">8 meses		</option>
+            <option value="9">9 meses	</option>
+            <option value="10">10 meses		</option>
+          </select>
+        </div>
+
+
+        
+      </div>
+
+      <div style="display: flex;align-items: baseline; padding: 20px;gap: 5px;">
+        <div>
+          <p>Seleccione su postgrado</p>
+        </div>
+        <div>
+          <select  id="postgrado2" class="form-select" aria-label="Default select example">
+            <option value="0">Ninguna</option>
+            <option value="0.10">Especializacion		</option>
+            <option value="0.45">Maestria		</option>
+            <option value="0.90">Doctorado		</option>
+            <option value="0">Posdoctorado			</option>
+      
+          </select>
+        </div>
+        
+      </div>
+     
+      <div style="display: flex;align-items: baseline; padding: 20px;gap: 5px;">
+        <div>
+          <p>Seleccione su grupo de investigacion</p>
+        </div>
+        <div>
+          <select  id="grupo_Investigaicon2" class="form-select" aria-label="Default select example">
+            <option value="0">Ninguna</option>
+            <option value="0.56">A1		</option>
+            <option value="0.47">A		</option>
+            <option value="0.42">B		</option>
+            <option value="0.38">C		</option>
+            <option value="0.33">Reconocido por colciencias		</option>
+            <option value="0.19">Semillero	</option>
+
+      
+          </select>
+        </div>
+        
+      </div>
+
+      <div><h6>Valor de hora de catedra 2023: <strong> 41.667</strong></h6></div>
+      <div><button id="boton2"  type="button" class="btn btn-primary">Calcular</button></div>
+
+    </div>
+
+
+    <!---resultados catedraticos-->
+
+    <div  style="display: flex;padding: 20px;justify-content: start;gap: 20px;flex-wrap: wrap; align-items: start;">
+      
+      <div style="display: flex;align-items: baseline;gap: 5px;">
+        <div>Sueldo:</div>
+        <div><input id="respuesta2" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+      </div> 
+
+      <div style="display: flex;align-items: baseline;gap: 5px;">
+        <div>Prima del servicio:</div>
+        <div><input id="primaservicio2" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+      </div> 
+
+      <div style="display: flex;align-items: baseline;gap: 5px;">
+        <div>Vacaciones:</div>
+        <div><input id="Vacaciones2" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+      </div> 
+
+      <div style="display: flex;align-items: baseline;gap: 5px;">
+        <div>Prima Vacaciones:</div>
+        <div><input id="primavacaciones2" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+      </div> 
+
+      <div style="display: flex;align-items: baseline;gap: 5px;">
+        <div>Prima navidad:</div>
+        <div><input id="primanavidad2" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+      </div> 
+
+      <div style="display: flex;align-items: baseline;gap: 5px;">
+        <div>Cesantias:</div>
+        <div><input id="cesantias2" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+      </div> 
+
+      <div style="display: flex;align-items: baseline;gap: 5px;">
+        <div> INTER/CTIAS :</div>
+        <div><input id="interctias2" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+      </div> 
+
+      <div style="display: flex;align-items: baseline;gap: 5px;">
+        <div>  TOTAL PREST :</div>
+        <div><input id="Totalprestaciones2" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+      </div> 
+
+      <div style="display: flex;align-items: baseline;gap: 5px;">
+        <div>   ESTAMP  :</div>
+        <div><input id="Estampillas2" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+      </div> 
+
+      <div style="display: flex;align-items: baseline;gap: 5px;">
+        <div>   Total recibido a lo largo del año en prestaciones  :</div>
+        <div><input id="Total2" class="form-control" type="text"  aria-label="Disabled input example" disabled readonly> </div>
+      </div> 
+
+    </div>
+
+
+
+   </section>
+
+
+
+   <script>
+      var dias = document.getElementById('dias');
+      var categoria = document.getElementById('categoria');
+      var postgrado = document.getElementById('postgrado');
+      var grupo_Investigaicon = document.getElementById('grupo_Investigaicon')
+      var respuesta = document.getElementById('respuesta');
+      var primaservicio = document.getElementById('primaservicio');
+      var primavacaciones = document.getElementById('primavacaciones');
+      var Vacaciones = document.getElementById('Vacaciones');
+      var primanavidad = document.getElementById('primanavidad');
+      var cesantias = document.getElementById('cesantias');
+      var interctias = document.getElementById('interctias');
+      var Totalprestaciones = document.getElementById('Totalprestaciones');
+      var Estampillas = document.getElementById('Estampillas');
+      var Total = document.getElementById('Total');
+
+      //catedraticos
+      var horas = document.getElementById('horas');
+      var Dur_contrato = document.getElementById('Dur_contrato');
+      var respuesta2 = document.getElementById('respuesta2');
+      var primaservicio2 = document.getElementById('primaservicio2');
+      var primavacaciones2 = document.getElementById('primavacaciones2');
+      var Vacaciones2 = document.getElementById('Vacaciones2');
+      var primanavidad2 = document.getElementById('primanavidad2');
+      var cesantias2 = document.getElementById('cesantias2');
+      var interctias2 = document.getElementById('interctias2');
+      var Totalprestaciones2 = document.getElementById('Totalprestaciones2');
+      var Estampillas2 = document.getElementById('Estampillas2');
+      var Total2 = document.getElementById('Total2');
+      
+
+
+      
+      //respuesta1
+     
+      document.getElementById('boton1').addEventListener("click",function(){
+        var sueldo= 1160000*categoria.value;
+        document.getElementById('respuesta').value=" ";
+        document.getElementById('respuesta').value = (categoria.value * 1160000)+(postgrado.value * 1160000)+(grupo_Investigaicon.value * 1160000) ;
+       
+        document.getElementById('primaservicio').value=" ";
+        document.getElementById('primaservicio').value = Math.round((sueldo*dias.value)/360) ;
+
+        document.getElementById('Vacaciones').value=" ";
+        document.getElementById('Vacaciones').value = Math.round( (sueldo+(primaservicio.value/12))*21/30*(dias.value/360)) ;
+
+        document.getElementById('primavacaciones').value=" ";
+        document.getElementById('primavacaciones').value = Math.round( ((sueldo*(2/3) )+(primaservicio.value/12))*dias.value/360) ;
+
+        document.getElementById('primanavidad').value=" ";
+        document.getElementById('primanavidad').value = Math.round( ( sueldo+primaservicio.value/ 12+primavacaciones.value/12)*dias.value/360) ;
+
+        document.getElementById('cesantias').value=" ";
+        document.getElementById('cesantias').value = Math.round( ( (sueldo)+primaservicio.value/12+primavacaciones.value/12+primanavidad.value/12 )/360*dias.value);
+
+        document.getElementById('interctias').value=" ";
+        document.getElementById('interctias').value = Math.round(cesantias.value*0.12*dias.value/360);
+        
+        document.getElementById('Totalprestaciones').value=" ";
+        document.getElementById('Totalprestaciones').value = parseInt(primaservicio.value)+parseInt(Vacaciones.value )   +parseInt(primavacaciones.value)+parseInt(primanavidad.value)+parseInt(cesantias.value)+parseInt(interctias.value);
+
+        document.getElementById('Estampillas').value=" ";
+        document.getElementById('Estampillas').value = Math.round(Totalprestaciones.value*5/1000);
+
+        document.getElementById('Total').value=" ";
+        document.getElementById('Total').value = parseInt(Totalprestaciones.value)-parseInt(Estampillas.value);
+        
+        
+      });
+      
+      document.getElementById('boton2').addEventListener("click",function(){
+        sueldo= 41667*horas.value*4;
+        dias.value=Dur_contrato.value*30;
+
+        console.log(sueldo);
+        console.log(dias.value);
+
+        document.getElementById('respuesta2').value=" ";
+        document.getElementById('respuesta2').value = (sueldo)+(postgrado2.value * 1160000)+(grupo_Investigaicon2.value * 1160000) ;
+       
+        document.getElementById('primaservicio2').value=" ";
+        document.getElementById('primaservicio2').value = Math.round((sueldo*dias.value)/360) ;
+
+        document.getElementById('Vacaciones2').value=" ";
+        document.getElementById('Vacaciones2').value = Math.round( (sueldo+(primaservicio2.value/12))*21/30*(dias.value/360)) ;
+
+        document.getElementById('primavacaciones2').value=" ";
+        document.getElementById('primavacaciones2').value = Math.round( ((sueldo*(2/3) )+(primaservicio2.value/12))*dias.value/360) ;
+
+        document.getElementById('primanavidad2').value=" ";
+        document.getElementById('primanavidad2').value = Math.round( ( sueldo+primaservicio2.value/ 12+primavacaciones2.value/12)*dias.value/360) ;
+
+        document.getElementById('cesantias2').value=" ";
+        document.getElementById('cesantias2').value = Math.round( ( (sueldo)+primaservicio2.value/12+primavacaciones2.value/12+primanavidad2.value/12 )/360*dias.value);
+
+        document.getElementById('interctias2').value=" ";
+        document.getElementById('interctias2').value = Math.round(cesantias2.value*0.12*dias.value/360);
+
+        document.getElementById('Totalprestaciones2').value=" ";
+        document.getElementById('Totalprestaciones2').value = parseInt(primaservicio2.value)+parseInt(Vacaciones2.value )   +parseInt(primavacaciones2.value)+parseInt(primanavidad2.value)+parseInt(cesantias2.value)+parseInt(interctias2.value);
+
+        document.getElementById('Estampillas2').value=" ";
+        document.getElementById('Estampillas2').value = Math.round(Totalprestaciones2.value*5/1000);
+
+        document.getElementById('Total2').value=" ";
+        document.getElementById('Total2').value = parseInt(Totalprestaciones2.value)-parseInt(Estampillas2.value);
+
+
+        
+
+
+
+
+
+      })
+       
+   </script>
+   
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
